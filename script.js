@@ -147,3 +147,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const statsSection = document.querySelector('.stats-section');
   if (statsSection) observer.observe(statsSection);
 });
+
+// ===== LIVE PLAYER COUNT =====
+async function fetchLivePlayers() {
+  const el = document.getElementById('livePlayerCount');
+  const dot = document.getElementById('liveDot');
+  try {
+    const res = await fetch('http://151.243.226.73:30120/players.json', { signal: AbortSignal.timeout(5000) });
+    const players = await res.json();
+    const count = Array.isArray(players) ? players.length : 0;
+    el.textContent = count;
+    dot.style.background = '#22c55e';
+  } catch (e) {
+    el.textContent = '–';
+    dot.style.background = '#ef4444';
+  }
+}
+
+fetchLivePlayers();
+setInterval(fetchLivePlayers, 30000); // refresh every 30s
