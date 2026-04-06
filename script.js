@@ -153,9 +153,9 @@ async function fetchLivePlayers() {
   const el = document.getElementById('livePlayerCount');
   const dot = document.getElementById('liveDot');
   try {
-    const res = await fetch('http://151.243.226.73:30120/players.json', { signal: AbortSignal.timeout(5000) });
-    const players = await res.json();
-    const count = Array.isArray(players) ? players.length : 0;
+    const res = await fetch('/api/players', { signal: AbortSignal.timeout(8000) });
+    const data = await res.json();
+    const count = data.count ?? 0;
     el.textContent = count;
     dot.style.background = '#22c55e';
   } catch (e) {
