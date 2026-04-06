@@ -836,12 +836,15 @@ ul { list-style: none; }
   cursor: pointer;
 }
 .footer-links a:hover { color: var(--blue); }
+.social-btns-wrap {
+  display: flex; flex-direction: column; gap: 0;
+}
 .social-btn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 0.6rem 1.2rem;
   border-radius: 6px;
   font-size: 0.9rem; font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
   transition: all 0.3s;
 }
 .social-btn.discord {
@@ -850,6 +853,31 @@ ul { list-style: none; }
 }
 .social-btn.discord:hover {
   background: #4752c4;
+  transform: translateY(-1px);
+}
+.social-btn.tiktok {
+  background: #010101;
+  color: white;
+  border: 1px solid #333;
+}
+.social-btn.tiktok:hover {
+  background: #1a1a1a;
+  transform: translateY(-1px);
+}
+.social-btn.instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white;
+}
+.social-btn.instagram:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+.social-btn.youtube {
+  background: #FF0000;
+  color: white;
+}
+.social-btn.youtube:hover {
+  background: #cc0000;
   transform: translateY(-1px);
 }
 .footer-ip {
