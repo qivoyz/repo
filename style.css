@@ -837,15 +837,18 @@ ul { list-style: none; }
 }
 .footer-links a:hover { color: var(--blue); }
 .social-btns-wrap {
-  display: flex; flex-direction: column; gap: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 .social-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  font-size: 0.9rem; font-weight: 600;
-  margin-bottom: 0.6rem;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  font-size: 0.88rem; font-weight: 600;
   transition: all 0.3s;
+  text-decoration: none;
+  width: 100%;
 }
 .social-btn.discord {
   background: #5865F2;
@@ -853,16 +856,18 @@ ul { list-style: none; }
 }
 .social-btn.discord:hover {
   background: #4752c4;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(88,101,242,0.4);
 }
 .social-btn.tiktok {
-  background: #010101;
+  background: #111;
   color: white;
-  border: 1px solid #333;
+  border: 1px solid #444;
 }
 .social-btn.tiktok:hover {
-  background: #1a1a1a;
-  transform: translateY(-1px);
+  background: #222;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255,255,255,0.1);
 }
 .social-btn.instagram {
   background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
@@ -870,7 +875,8 @@ ul { list-style: none; }
 }
 .social-btn.instagram:hover {
   opacity: 0.85;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220,39,67,0.4);
 }
 .social-btn.youtube {
   background: #FF0000;
@@ -878,7 +884,8 @@ ul { list-style: none; }
 }
 .social-btn.youtube:hover {
   background: #cc0000;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255,0,0,0.4);
 }
 .footer-ip {
   display: flex; flex-direction: column; gap: 4px;
