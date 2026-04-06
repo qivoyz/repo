@@ -887,6 +887,23 @@ ul { list-style: none; }
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(255,0,0,0.4);
 }
+.job-logo-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(37,99,235,0.3));
+  transition: transform 0.3s, filter 0.3s;
+}
+.job-card:hover .job-logo-img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 14px rgba(37,99,235,0.55));
+}
+.job-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
+}
 .footer-ip {
   display: flex; flex-direction: column; gap: 4px;
   margin-top: 0.5rem;
