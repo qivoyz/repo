@@ -1,0 +1,12 @@
+{
+  "name": "zerorp-website",
+  "version": "1.0.0",
+  "description": "Zero Roleplay FiveM Malaysia Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zero Roleplay | FiveM Malaysia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,2 38,12 38,28 20,38 2,28 2,12" fill="none" stroke="#2563eb" stroke-width="2"/>
+            <polygon points="20,8 32,15 32,25 20,32 8,25 8,15" fill="#2563eb" opacity="0.2"/>
+            <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#2563eb" font-size="14" font-family="Rajdhani" font-weight="700">ZRP</text>
+          </svg>
+        </div>
+        <span class="logo-text">ZERO<span class="accent">RP</span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active" onclick="showPage('home')">HOME</a></li>
+        <li><a href="#rules" class="nav-link" onclick="showPage('rules')">RULES</a></li>
+        <li><a href="#gallery" class="nav-link" onclick="showPage('gallery')">GALLERY</a></li>
+        <li><a href="#jobs" class="nav-link" onclick="showPage('jobs')">JOBS</a></li>
+        <li><a href="https://discord.gg/zerorpmy" target="_blank" class="nav-discord">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.055a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+          DISCORD
+        </a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE: HOME ===== -->
+  <div class="page active" id="page-home">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="grid-overlay"></div>
+        <div class="hex-particles" id="hexParticles"></div>
+        <div class="glow-orb orb1"></div>
+        <div class="glow-orb orb2"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge">🇲🇾 MALAYSIA #1 FIVEM SERVER</div>
+        <h1 class="hero-title">
+          <span class="title-zero">ZERO</span>
+          <span class="title-rp">ROLEPLAY</span>
+        </h1>
+        <p class="hero-sub">Pengalaman roleplay terbaik di Malaysia. Komuniti aktif, staff profesional, gameplay realistik.</p>
+        <div class="hero-ip">
+          <span class="ip-label">SERVER IP</span>
+          <span class="ip-value" id="ipDisplay">connect.zerorpmy.com</span>
+          <button class="copy-btn" onclick="copyIP()">COPY</button>
+        </div>
+        <div class="hero-actions">
+          <a href="https://discord.gg/zerorpmy" target="_blank" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.055a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+            JOIN DISCORD
+          </a>
+          <a href="#" onclick="showPage('rules')" class="btn-secondary">BACA RULES</a>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <div class="scroll-line"></div>
+        <span>SCROLL</span>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num" data-target="500">0</div>
+          <div class="stat-label">PEMAIN AKTIF</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" data-target="24">0</div>
+          <div class="stat-label">JAM ONLINE</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" data-target="30">0</div>
+          <div class="stat-label">STAFF TEAM</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" data-target="50">0</div>
+          <div class="stat-label">JOBS TERSEDIA</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section">
+      <div class="section-header">
+        <span class="section-tag">KENAPA ZERO RP?</span>
+        <h2>FEATURES TERBAIK</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feat-icon">🚔</div>
+          <h3>POLIS & JENAYAH</h3>
+          <p>Sistem polis dan criminal yang realistik dengan investigasi, pursuit, dan court system.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feat-icon">🏥</div>
+          <h3>PERUBATAN</h3>
+          <p>EMS profesional dengan sistem injury, hospital, dan rawatan yang lengkap.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feat-icon">💼</div>
+          <h3>EKONOMI STABIL</h3>
+          <p>Sistem ekonomi yang seimbang dengan pelbagai sumber pendapatan halal dan haram.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feat-icon">🏘️</div>
+          <h3>PROPERTY SYSTEM</h3>
+          <p>Beli rumah, perniagaan dan kenderaan. Bina empayar kau sendiri dalam server.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feat-icon">🎮</div>
+          <h3>CUSTOM SCRIPTS</h3>
+          <p>Scripts eksklusif yang tak ada dalam server lain. Pengalaman unik hanya di Zero RP.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feat-icon">🛡️</div>
+          <h3>ANTI-CHEAT</h3>
+          <p>Sistem anti-cheat canggih untuk memastikan gameplay yang fair dan selamat.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="cta-content">
+        <h2>READY UNTUK JOIN?</h2>
+        <p>Lebih 500 pemain dah tunggu kau. Join sekarang dan mula roleplay kau!</p>
+        <a href="https://discord.gg/zerorpmy" target="_blank" class="btn-primary large">JOIN SEKARANG</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== PAGE: RULES ===== -->
+  <div class="page" id="page-rules">
+    <div class="page-hero small">
+      <div class="grid-overlay"></div>
+      <div class="glow-orb orb1"></div>
+      <h1 class="page-title">SERVER <span class="accent">RULES</span></h1>
+      <p>Baca dan faham semua peraturan sebelum bermain</p>
+    </div>
+    <div class="rules-container">
+      <div class="rules-notice">
+        <span>⚠️</span>
+        <p>Ketidakpatuhan peraturan boleh menyebabkan <strong>kick, ban sementara atau ban kekal</strong>. Kejahilan bukan alasan.</p>
+      </div>
+
+      <div class="rules-category">
+        <div class="rules-cat-header">
+          <span class="cat-num">01</span>
+          <h2>PERATURAN AM</h2>
+        </div>
+        <div class="rules-list">
+          <div class="rule-item"><span class="rule-num">1.1</span><p>Hormati semua pemain dan staff tanpa mengira pangkat atau status.</p></div>
+          <div class="rule-item"><span class="rule-num">1.2</span><p>Dilarang menggunakan bahasa kesat, racist, atau menghina agama dalam mana-mana platform server.</p></div>
+          <div class="rule-item"><span class="rule-num">1.3</span><p>Dilarang spam dalam chat, voice, atau mana-mana channel Discord.</p></div>
+          <div class="rule-item"><span class="rule-num">1.4</span><p>Ikut arahan staff pada bila-bila masa. Keputusan staff adalah muktamad.</p></div>
+          <div class="rule-item"><span class="rule-num">1.5</span><p>Dilarang berkongsi maklumat peribadi pemain lain tanpa kebenaran (doxxing).</p></div>
+        </div>
+      </div>
+
+      <div class="rules-category">
+        <div class="rules-cat-header">
+          <span class="cat-num">02</span>
+          <h2>ROLEPLAY</h2>
+        </div>
+        <div class="rules-list">
+          <div class="rule-item"><span class="rule-num">2.1</span><p><strong>No RDM</strong> — Dilarang membunuh pemain tanpa sebab yang munasabah dalam roleplay.</p></div>
+          <div class="rule-item"><span class="rule-num">2.2</span><p><strong>No VDM</strong> — Dilarang menggunakan kenderaan untuk membunuh secara sengaja tanpa motif RP.</p></div>
+          <div class="rule-item"><span class="rule-num">2.3</span><p><strong>Value Your Life (VYL)</strong> — Kau mesti nilai nyawa karakter kau. Jangan buat perkara bodoh bila kena tahan dengan senjata.</p></div>
+          <div class="rule-item"><span class="rule-num">2.4</span><p><strong>No Meta-Gaming</strong> — Dilarang menggunakan maklumat luar RP (Discord, stream, etc.) untuk keuntungan dalam game.</p></div>
+          <div class="rule-item"><span class="rule-num">2.5</span><p><strong>No Power-Gaming</strong> — Dilarang memaksa pemain lain untuk roleplay yang mereka tak setuju atau buat perkara yang mustahil.</p></div>
+          <div class="rule-item"><span class="rule-num">2.6</span><p>Kekal dalam karakter (IC) sepanjang masa. Gunakan /ooc untuk komunikasi luar RP.</p></div>
+          <div class="rule-item"><span class="rule-num">2.7</span><p>Dilarang membuat RP yang melibatkan unsur seksual (ERP) dalam mana-mana keadaan.</p></div>
+        </div>
+      </div>
+
+      <div class="rules-category">
+        <div class="rules-cat-header">
+          <span class="cat-num">03</span>
+          <h2>COMBAT & JENAYAH</h2>
+        </div>
+        <div class="rules-list">
+          <div class="rule-item"><span class="rule-num">3.1</span><p>Nisbah maksimum untuk rompakan bank adalah <strong>4 orang</strong>. Rompakan kedai <strong>2 orang</strong>.</p></div>
+          <div class="rule-item"><span class="rule-num">3.2</span><p>Dilarang <strong>Combat Log</strong> — keluar dari game semasa dalam situasi RP aktif untuk elak kematian.</p></div>
+          <div class="rule-item"><span class="rule-num">3.3</span><p>Selepas mati, laksanakan <strong>New Life Rule (NLR)</strong> — lupakan semua kejadian sebelum kematian.</p></div>
+          <div class="rule-item"><span class="rule-num">3.4</span><p>Dilarang membawa senjata berat (LMG, RPG) di kawasan awam tanpa sebab RP yang kukuh.</p></div>
+          <div class="rule-item"><span class="rule-num">3.5</span><p>Zona hijau (hospital, spawn area) adalah <strong>NO CRIME ZONE</strong>. Dilarang melakukan jenayah di kawasan ini.</p></div>
+        </div>
+      </div>
+
+      <div class="rules-category">
+        <div class="rules-cat-header">
+          <span class="cat-num">04</span>
+          <h2>POLIS & EMS</h2>
+        </div>
+        <div class="rules-list">
+          <div class="rule-item"><span class="rule-num">4.1</span><p>Polis dan EMS wajib kekal profesional dan bertindak mengikut SOP jabatan masing-masing.</p></div>
+          <div class="rule-item"><span class="rule-num">4.2</span><p>Dilarang <strong>Cop-Baiting</strong> — sengaja provoke polis tanpa tujuan RP yang jelas.</p></div>
+          <div class="rule-item"><span class="rule-num">4.3</span><p>EMS tidak boleh diserang semasa menjalankan tugas melainkan ada sebab RP yang sah.</p></div>
+          <div class="rule-item"><span class="rule-num">4.4</span><p>Polis minimum 4 orang online untuk operasi besar dibenarkan.</p></div>
+        </div>
+      </div>
+
+      <div class="rules-category">
+        <div class="rules-cat-header">
+          <span class="cat-num">05</span>
+          <h2>CHEAT & EXPLOIT</h2>
+        </div>
+        <div class="rules-list">
+          <div class="rule-item ban"><span class="rule-num">5.1</span><p>Penggunaan <strong>cheat, hack, atau mod</strong> yang memberi kelebihan tidak adil adalah <span class="ban-tag">PERMANENT BAN</span>.</p></div>
+          <div class="rule-item ban"><span class="rule-num">5.2</span><p>Exploit bug atau glitch dengan sengaja untuk keuntungan adalah <span class="ban-tag">PERMANENT BAN</span>.</p></div>
+          <div class="rule-item ban"><span class="rule-num">5.3</span><p>Duplication money atau item adalah <span class="ban-tag">PERMANENT BAN</span>.</p></div>
+          <div class="rule-item"><span class="rule-num">5.4</span><p>Laporkan bug atau exploit kepada staff segera. Hadiah mungkin diberikan.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PAGE: GALLERY ===== -->
+  <div class="page" id="page-gallery">
+    <div class="page-hero small">
+      <div class="grid-overlay"></div>
+      <div class="glow-orb orb1"></div>
+      <h1 class="page-title">GALLERY <span class="accent">ZERO RP</span></h1>
+      <p>Tangkapan skrin terbaik dari pemain kami</p>
+    </div>
+    <div class="gallery-container">
+      <div class="gallery-filter">
+        <button class="filter-btn active" onclick="filterGallery('all', this)">SEMUA</button>
+        <button class="filter-btn" onclick="filterGallery('action', this)">ACTION</button>
+        <button class="filter-btn" onclick="filterGallery('rp', this)">ROLEPLAY</button>
+        <button class="filter-btn" onclick="filterGallery('event', this)">EVENT</button>
+      </div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item" data-cat="action">
+          <div class="gallery-placeholder">
+            <div class="gp-icon">🚔</div>
+            <div class="gp-text">Police Chase Scene</div>
+            <div class="gp-sub">High Speed Pursuit di Highway</div>
+          </div>
+          <div class="gallery-overlay"><span>Police Pursuit</span></div>
+        </div>
+        <div class="gallery-item large" data-cat="rp">
+          <div class="gallery-placeholder">
+            <div class="gp-icon">🏙️</div>
+            <div class="gp-text">City Night View</div>
+            <div class="gp-sub">Pemandangan kota waktu malam</div>
+          </div>
+          <div class="gallery-overlay"><span>City Life</span></div>
+        </div>
+        <div class="gallery-item" data-cat="event">
+          <div class="gallery-placeholder">
+            <div class="gp-icon">🎉</div>
+            <div class="gp-text">Server Event</div>
+            <div class="gp-sub">Anniversary Event 2025</div>
+          </div>
+          <div class="gallery-overlay"><span>Server Event</span></div>
+        </div>
+        <div class="gallery-item" data-cat="action">
+          <div class="gallery-placeholder">
+            <div class="gp-icon">💥</div>
+            <div class="gp-text">Gang War</div>
+            <div class="gp-sub">Pertempuran di kawasan gang</div>
+          </div>
+          <div class="gallery-overlay"><span>Gang War</span></div>
+        </div>
+        <div class="gallery-item" data-cat="rp">
+          <div class="gallery-placeholder">
+            <div class="gp-icon">🏥</div>
+            <div class="gp-text">EMS Operation</div>
+            <div class="gp-sub">EMS menyelamatkan mangsa</div>
+          </div>
+          <div class="gallery-overlay"><span>EMS In Action</span></div>
+        </div>
+        <div class="gallery-item large" data-cat="action">
+          <div class="gallery-placeholder">
+            <div class="gp-icon">🏦</div>
+            <div class="gp-text">Bank Robbery</div>
+            <div class="gp-sub">Rompakan bank berskala besar</div>
+          </div>
+          <div class="gallery-overlay"><span>Heist</span></div>
+        </div>
+        <div class="gallery-item" data-cat="event">
+          <div class="gallery-placeholder">
+            <div class="gp-icon">🏁</div>
+            <div class="gp-text">Racing Event</div>
+            <div class="gp-sub">Street Racing Championship</div>
+          </div>
+          <div class="gallery-overlay"><span>Racing</span></div>
+        </div>
+        <div class="gallery-item" data-cat="rp">
+          <div class="gallery-placeholder">
+            <div class="gp-icon">⚖️</div>
+            <div class="gp-text">Court Session</div>
+            <div class="gp-sub">Sesi mahkamah RP</div>
+          </div>
+          <div class="gallery-overlay"><span>Court RP</span></div>
+        </div>
+        <div class="gallery-item" data-cat="action">
+          <div class="gallery-placeholder">
+            <div class="gp-icon">🌃</div>
+            <div class="gp-text">Night Operation</div>
+            <div class="gp-sub">Operasi SWAT waktu malam</div>
+          </div>
+          <div class="gallery-overlay"><span>SWAT Op</span></div>
+        </div>
+      </div>
+      <div class="gallery-notice">
+        <p>📸 Nak hantar screenshot kau? Post dalam channel <strong>#gallery</strong> di Discord kami!</p>
+        <a href="https://discord.gg/zerorpmy" target="_blank" class="btn-primary">JOIN DISCORD</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PAGE: JOBS ===== -->
+  <div class="page" id="page-jobs">
+    <div class="page-hero small">
+      <div class="grid-overlay"></div>
+      <div class="glow-orb orb1"></div>
+      <h1 class="page-title">JOBS <span class="accent">& GANG</span></h1>
+      <p>Pilih laluan kau — jadi hero atau villain</p>
+    </div>
+    <div class="jobs-container">
+      <div class="jobs-tabs">
+        <button class="job-tab active" id="tab-whitelist" onclick="switchJobTab('whitelist')">
+          <span class="tab-icon">🏛️</span>
+          WHITELIST JOBS
+        </button>
+        <button class="job-tab" id="tab-gang" onclick="switchJobTab('gang')">
+          <span class="tab-icon">💀</span>
+          GANG
+        </button>
+      </div>
+
+      <!-- WHITELIST JOBS -->
+      <div class="job-section active" id="section-whitelist">
+        <div class="job-section-intro">
+          <p>Kerja whitelist memerlukan <strong>permohonan dan temuduga</strong>. Gaji tetap + elaun. Sesuai untuk pemain yang nak RP serius.</p>
+        </div>
+        <div class="jobs-grid">
+          <div class="job-card">
+            <div class="job-badge">POLIS</div>
+            <div class="job-icon-wrap"><span class="job-emoji">🚔</span></div>
+            <h3>PDRM</h3>
+            <p class="job-dept">Polis Diraja Malaysia</p>
+            <p class="job-desc">Jaga keamanan bandar, tahan penjenayah, jalankan siasatan dan operasi khas.</p>
+            <div class="job-details">
+              <div class="jd-item"><span>💰</span>Gaji: RM 800 – RM 3,500</div>
+              <div class="jd-item"><span>📋</span>Permohonan: Discord</div>
+              <div class="jd-item"><span>⭐</span>Slot: 40 pemain</div>
+            </div>
+            <a href="https://discord.gg/zerorpmy" target="_blank" class="job-apply-btn">MOHON SEKARANG</a>
+          </div>
+
+          <div class="job-card">
+            <div class="job-badge ems">EMS</div>
+            <div class="job-icon-wrap"><span class="job-emoji">🏥</span></div>
+            <h3>EMS</h3>
+            <p class="job-dept">Emergency Medical Services</p>
+            <p class="job-desc">Selamatkan nyawa pemain yang cedera, rawat pesakit dan operasikan hospital.</p>
+            <div class="job-details">
+              <div class="jd-item"><span>💰</span>Gaji: RM 700 – RM 2,800</div>
+              <div class="jd-item"><span>📋</span>Permohonan: Discord</div>
+              <div class="jd-item"><span>⭐</span>Slot: 25 pemain</div>
+            </div>
+            <a href="https://discord.gg/zerorpmy" target="_blank" class="job-apply-btn">MOHON SEKARANG</a>
+          </div>
+
+          <div class="job-card">
+            <div class="job-badge mech">MEKANIKAL</div>
+            <div class="job-icon-wrap"><span class="job-emoji">🔧</span></div>
+            <h3>MEKANIK</h3>
+            <p class="job-dept">Los Santos Customs</p>
+            <p class="job-desc">Baiki kenderaan, modifikasi kereta dan buka bengkel sendiri dalam server.</p>
+            <div class="job-details">
+              <div class="jd-item"><span>💰</span>Gaji: RM 600 – RM 2,000</div>
+              <div class="jd-item"><span>📋</span>Permohonan: Discord</div>
+              <div class="jd-item"><span>⭐</span>Slot: 20 pemain</div>
+            </div>
+            <a href="https://discord.gg/zerorpmy" target="_blank" class="job-apply-btn">MOHON SEKARANG</a>
+          </div>
+
+          <div class="job-card">
+            <div class="job-badge lawyer">UNDANG</div>
+            <div class="job-icon-wrap"><span class="job-emoji">⚖️</span></div>
+            <h3>PEGUAM</h3>
+            <p class="job-dept">Firma Undang-Undang Zero</p>
+            <p class="job-desc">Defend klien di mahkamah, urus kontrak perniagaan dan beri khidmat guaman.</p>
+            <div class="job-details">
+              <div class="jd-item"><span>💰</span>Gaji: RM 1,500 – RM 5,000</div>
+              <div class="jd-item"><span>📋</span>Permohonan: Discord</div>
+              <div class="jd-item"><span>⭐</span>Slot: 10 pemain</div>
+            </div>
+            <a href="https://discord.gg/zerorpmy" target="_blank" class="job-apply-btn">MOHON SEKARANG</a>
+          </div>
+
+          <div class="job-card">
+            <div class="job-badge media">MEDIA</div>
+            <div class="job-icon-wrap"><span class="job-emoji">📺</span></div>
+            <h3>WARTAWAN</h3>
+            <p class="job-dept">Zero News Network</p>
+            <p class="job-desc">Liputan berita server, wawancara pemain dan siarkan kejadian langsung.</p>
+            <div class="job-details">
+              <div class="jd-item"><span>💰</span>Gaji: RM 500 – RM 1,800</div>
+              <div class="jd-item"><span>📋</span>Permohonan: Discord</div>
+              <div class="jd-item"><span>⭐</span>Slot: 15 pemain</div>
+            </div>
+            <a href="https://discord.gg/zerorpmy" target="_blank" class="job-apply-btn">MOHON SEKARANG</a>
+          </div>
+
+          <div class="job-card">
+            <div class="job-badge swat">SWAT</div>
+            <div class="job-icon-wrap"><span class="job-emoji">🪖</span></div>
+            <h3>UTK / SWAT</h3>
+            <p class="job-dept">Unit Tindakan Khas</p>
+            <p class="job-desc">Unit elite polis untuk situasi kritikal, penculikan dan ancaman bersenjata berat.</p>
+            <div class="job-details">
+              <div class="jd-item"><span>💰</span>Gaji: RM 2,000 – RM 6,000</div>
+              <div class="jd-item"><span>📋</span>Perlukan Rank Polis</div>
+              <div class="jd-item"><span>⭐</span>Slot: 12 pemain</div>
+            </div>
+            <a href="https://discord.gg/zerorpmy" target="_blank" class="job-apply-btn">MOHON SEKARANG</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- GANG SECTION -->
+      <div class="job-section" id="section-gang">
+        <div class="job-section-intro dark">
+          <p>Gang aktif dalam dunia bawah tanah Zero RP. Setiap gang ada <strong>territory, hierarchy dan aktiviti</strong> tersendiri. Hubungi pemimpin gang untuk join.</p>
+        </div>
+        <div class="jobs-grid">
+          <div class="job-card gang-card">
+            <div class="gang-territory">DOWNTOWN</div>
+            <div class="job-icon-wrap"><span class="job-emoji">🩸</span></div>
+            <h3>BLOOD CARTEL</h3>
+            <p class="job-dept gang-color-red">The Red Empire</p>
+            <p class="job-desc">Gang terkuat di kawasan Downtown. Menguasai perniagaan dadah dan perlindungan haram.</p>
+            <div class="job-details">
+              <div class="jd-item"><span>🗺️</span>Territory: Downtown, Grove</div>
+              <div class="jd-item"><span>👥</span>Anggota: 35 aktif</div>
+              <div class="jd-item"><span>💀</span>Status: AKTIF</div>
+            </div>
+            <a href="https://discord.gg/zerorpmy" target="_blank" class="job-apply-btn gang-btn">MINTA JOIN</a>
+          </div>
+
+          <div class="job-card gang-card">
+            <div class="gang-territory">EASTSIDE</div>
+            <div class="job-icon-wrap"><span class="job-emoji">🔵</span></div>
+            <h3>EAST SIDE CRIPS</h3>
+            <p class="job-dept gang-color-blue">Blue Nation</p>
+            <p class="job-desc">Menguasai penyelundupan senjata di kawasan timur. Rival utama Blood Cartel.</p>
+            <div class="job-details">
+              <div class="jd-item"><span>🗺️</span>Territory: Eastside, Port</div>
+              <div class="jd-item"><span>👥</span>Anggota: 28 aktif</div>
+              <div class="jd-item"><span>💀</span>Status: AKTIF</div>
+            </div>
+            <a href="https://discord.gg/zerorpmy" target="_blank" class="job-apply-btn gang-btn">MINTA JOIN</a>
+          </div>
+
+          <div class="job-card gang-card">
+            <div class="gang-territory">NORTHSIDE</div>
+            <div class="job-icon-wrap"><span class="job-emoji">🌿</span></div>
+            <h3>GREEN STREET MOB</h3>
+            <p class="job-dept gang-color-green">The Street Kings</p>
+            <p class="job-desc">Spesialis dalam rompakan bank dan operasi bawah tanah di kawasan utara bandar.</p>
+            <div class="job-details">
+              <div class="jd-item"><span>🗺️</span>Territory: Northside, Hills</div>
+              <div class="jd-item"><span>👥</span>Anggota: 22 aktif</div>
+              <div class="jd-item"><span>💀</span>Status: AKTIF</div>
+            </div>
+            <a href="https://discord.gg/zerorpmy" target="_blank" class="job-apply-btn gang-btn">MINTA JOIN</a>
+          </div>
+
+          <div class="job-card gang-card">
+            <div class="gang-territory">CHINATOWN</div>
+            <div class="job-icon-wrap"><span class="job-emoji">🐉</span></div>
+            <h3>DRAGON TRIAD</h3>
+            <p class="job-dept gang-color-gold">The Silent Dragons</p>
+            <p class="job-desc">Triad rahsia yang menguasai perniagaan underground di Chinatown dan kawasan pelabuhan.</p>
+            <div class="job-details">
+              <div class="jd-item"><span>🗺️</span>Territory: Chinatown, Harbor</div>
+              <div class="jd-item"><span>👥</span>Anggota: 18 aktif</div>
+              <div class="jd-item"><span>💀</span>Status: AKTIF</div>
+            </div>
+            <a href="https://discord.gg/zerorpmy" target="_blank" class="job-apply-btn gang-btn">MINTA JOIN</a>
+          </div>
+
+          <div class="job-card gang-card">
+            <div class="gang-territory">HIGHWAY</div>
+            <div class="job-icon-wrap"><span class="job-emoji">🏍️</span></div>
+            <h3>IRON WOLVES MC</h3>
+            <p class="job-dept gang-color-orange">Motorcycle Club</p>
+            <p class="job-desc">Motorcycle club yang menguasai highway. Penyelundupan barangan dari pelabuhan ke bandar.</p>
+            <div class="job-details">
+              <div class="jd-item"><span>🗺️</span>Territory: Highway, Docks</div>
+              <div class="jd-item"><span>👥</span>Anggota: 20 aktif</div>
+              <div class="jd-item"><span>💀</span>Status: AKTIF</div>
+            </div>
+            <a href="https://discord.gg/zerorpmy" target="_blank" class="job-apply-btn gang-btn">MINTA JOIN</a>
+          </div>
+
+          <div class="job-card gang-card new">
+            <div class="gang-territory new-tag">BARU</div>
+            <div class="job-icon-wrap"><span class="job-emoji">❓</span></div>
+            <h3>BUKA GANG BARU</h3>
+            <p class="job-dept">Custom Gang</p>
+            <p class="job-desc">Nak tubuhkan gang sendiri? Hubungi admin untuk maklumat lanjut tentang syarat dan prosedur.</p>
+            <div class="job-details">
+              <div class="jd-item"><span>📋</span>Min. 8 ahli diperlukan</div>
+              <div class="jd-item"><span>💰</span>Fee: RM 50,000 in-game</div>
+              <div class="jd-item"><span>⭐</span>Kelulusan Admin</div>
+            </div>
+            <a href="https://discord.gg/zerorpmy" target="_blank" class="job-apply-btn gang-btn">HUBUNGI ADMIN</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+            <polygon points="20,2 38,12 38,28 20,38 2,28 2,12" fill="none" stroke="#2563eb" stroke-width="2"/>
+            <polygon points="20,8 32,15 32,25 20,32 8,25 8,15" fill="#2563eb" opacity="0.2"/>
+            <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#2563eb" font-size="14" font-family="Rajdhani" font-weight="700">ZRP</text>
+          </svg>
+          <span>ZERO ROLEPLAY</span>
+        </div>
+        <p>Server FiveM Roleplay terbaik di Malaysia. Komuniti aktif sejak 2023.</p>
+      </div>
+      <div class="footer-links">
+        <h4>NAVIGASI</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('home')">Home</a></li>
+          <li><a href="#" onclick="showPage('rules')">Rules</a></li>
+          <li><a href="#" onclick="showPage('gallery')">Gallery</a></li>
+          <li><a href="#" onclick="showPage('jobs')">Jobs</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>SOSIAL</h4>
+        <a href="https://discord.gg/zerorpmy" target="_blank" class="social-btn discord">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.055a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+          Discord
+        </a>
+        <div class="footer-ip">
+          <span class="ip-label">SERVER IP</span>
+          <code>connect.zerorpmy.com</code>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Zero Roleplay Malaysia. All rights reserved.</p>
+      <p>Dibuat dengan ❤️ untuk komuniti FiveM Malaysia</p>
+    </div>
+  </footer>
+
+  <!-- IP COPY TOAST -->
+  <div class="toast" id="toast">✅ IP Disalin!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
