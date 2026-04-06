@@ -148,21 +148,41 @@ document.addEventListener('DOMContentLoaded', () => {
   if (statsSection) observer.observe(statsSection);
 });
 
+
 // ===== LIVE PLAYER COUNT =====
 async function fetchLivePlayers() {
   const el = document.getElementById('livePlayerCount');
   const dot = document.getElementById('liveDot');
   try {
-    const res = await fetch('/api/players', { signal: AbortSignal.timeout(8000) });
-    const data = await res.json();
-    const count = data.count ?? 0;
+    // Fetch terus dari browser - Cfx.re API ada CORS header, boleh direct fetch
+    const res = await fetch('https://servers-frontend.fivem.net/api/servers/single/xmq5zm', {
+      signal: AbortSignal.timeout(8000)
+    });
+    const json = await res.json();
+    // Cuba semua kemungkinan key
+    const count = json?.Data?.clients
+      ?? json?.data?.clients
+      ?? json?.clients
+      ?? (Array.isArray(json?.Data?.players) ? json.Data.players.length : null)
+      ?? 0;
     el.textContent = count;
     dot.style.background = '#22c55e';
   } catch (e) {
-    el.textContent = '–';
-    dot.style.background = '#ef4444';
+    // Fallback: cuba direct IP
+    try {
+      const res2 = await fetch('http://151.243.226.73:30120/players.json', {
+        signal: AbortSignal.timeout(5000)
+      });
+      const players = await res2.json();
+      el.textContent = Array.isArray(players) ? players.length : '0';
+      dot.style.background = '#22c55e';
+    } catch (e2) {
+      el.textContent = '–';
+      dot.style.background = '#ef4444';
+    }
   }
 }
 
 fetchLivePlayers();
 setInterval(fetchLivePlayers, 30000); // refresh every 30s
+
